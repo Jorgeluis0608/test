@@ -1,0 +1,211 @@
+html,
+body {
+  @apply bg-primary-lightest;
+}
+
+a,
+button {
+  @apply transition-all duration-200 ease-out;
+
+  &.outline-none {
+    @apply outline-none;
+  }
+}
+
+.btn {
+  @apply relative inline-block h-10 cursor-pointer rounded 
+         bg-primary-light px-5 py-3 text-center 
+         text-sm font-semibold uppercase leading-tight tracking-wide;
+
+  &:hover {
+    @apply bg-primary-darker text-primary-lightest;
+  }
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+
+  &.disabled,
+  &.loading {
+    @apply pointer-events-none bg-primary-lighter text-primary-med;
+
+    &:hover {
+      @apply bg-primary-lighter text-primary-med;
+    }
+  }
+
+  &.loading {
+    @apply cursor-wait;
+  }
+
+  &.dark {
+    @apply bg-primary-darker text-primary-lightest;
+
+    &:hover {
+      @apply bg-primary-darkest;
+    }
+  }
+
+  &.light {
+    @apply bg-primary-light text-primary-darkest;
+
+    &:hover {
+      @apply bg-primary-med;
+    }
+  }
+
+  &.light-error {
+    @apply bg-primary-light text-primary-darkest;
+
+    &:hover {
+      @apply bg-error-default text-primary-lightest;
+    }
+  }
+
+  &.lighter {
+    @apply bg-primary-lighter;
+
+    &:hover {
+      @apply bg-primary-lightest text-accent-default;
+    }
+  }
+}
+
+.btn--main,
+.btn--lg {
+  @apply h-14 bg-primary-darkest text-primary-lightest;
+
+  &.disabled,
+  &.loading {
+    @apply bg-primary-med text-primary-lightest;
+
+    &:hover {
+      @apply bg-primary-med text-primary-lightest;
+    }
+  }
+}
+
+.btn--lg {
+  @apply block py-5;
+}
+
+.btn-icon {
+  @apply h-10 w-10 rounded-sm bg-primary-light;
+
+  &:hover {
+    @apply bg-primary-darker text-primary-lightest;
+  }
+}
+
+img {
+  &.loaded {
+    transition: opacity 0.4s ease;
+    opacity: 1 !important;
+  }
+
+  &.loading {
+    opacity: 0;
+  }
+}
+
+img {
+  &.loaded {
+    transition: opacity 0.4s ease;
+    opacity: 1 !important;
+  }
+
+  &.loading {
+    opacity: 0;
+  }
+}
+
+img {
+  &.loaded {
+    transition: opacity 0.4s ease;
+    opacity: 1 !important;
+  }
+
+  &.loading {
+    opacity: 0;
+  }
+}
+
+.cta-link {
+  @apply mb-3 inline-block rounded-none border-b border-primary-darkest pb-1;
+
+  &.light {
+    @apply border-primary-lightest text-primary-lightest;
+  }
+
+  &.lighter {
+    @apply border-primary-lighter text-primary-lighter;
+  }
+}
+
+.grid-icon-label {
+  @apply grid w-full items-center gap-3 md:justify-center;
+  grid-template-columns: 1.25rem auto;
+}
+
+.label-tag {
+  @apply ml-1 rounded px-2 py-1 text-2xs font-semibold uppercase leading-tight;
+}
+
+.label-tag--sale {
+  @apply bg-error-faded text-error-default;
+}
+
+.loader-el {
+  @apply animate-pulse rounded-sm bg-primary-light;
+}
+
+.checkbox {
+  @apply flex pb-1;
+
+  & input {
+    @apply invisible m-0 h-0 w-0 appearance-none border-0 p-0;
+  }
+
+  & input:checked + label {
+    & .indicator {
+      @apply border-primary-darkest bg-primary-darkest;
+    }
+  }
+
+  & label {
+    @apply relative flex cursor-pointer appearance-none items-center;
+
+    & .indicator {
+      @apply flex h-6 w-6 cursor-pointer items-center justify-center rounded border border-primary-med;
+      transition: all 0.2s ease;
+    }
+
+    & p {
+      @apply ml-0;
+    }
+  }
+
+  & .check {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* Remove spin buttons for input number (Chrome, Safari, Edge, Opera) */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove spin buttons for input number (Firefox) */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@responsive {
+  .container {
+    @apply mx-auto w-full px-6 lg:px-8 xl:px-10;
+  }
+}

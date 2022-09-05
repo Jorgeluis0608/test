@@ -1,0 +1,257 @@
+$deco-banner: '/images/retail/deco-banner.svg';
+
+.banner-wrap {
+  position: relative;
+  display: block;
+  ::v-deep(.slick-dots) {
+    @include breakpoints-down(sm) {
+      bottom: 0;
+    }
+  }
+  .slick-slide * {
+    direction: ltr;
+  }
+  .carousel {
+    @include breakpoints-down(xs) {
+      position: relative;
+      z-index: 5;
+    }
+  }
+}
+
+.slide {
+  position: relative;
+  @include breakpoints-down('sm') {
+    text-align: center;
+    padding: spacing(15, 0, 10);
+  }
+  @include breakpoints-down('xs') {
+    padding: spacing(15, 0, 5);
+  }
+  .img img {
+    margin: 80px auto 0;
+    max-width: 100%;
+    max-height: 300px;
+    position: relative;
+    z-index: 5;
+    @include breakpoints-up('lg') {
+      max-height: 260px;
+    }
+    @include breakpoints-down('sm') {
+      margin-top: $spacing3;
+    }
+  }
+  &.cur {
+    .deco {
+      transform: translateX(0px) scale(1);
+      opacity: 0.1;
+    }
+  }
+  &.center-content {
+    padding-top: 120px !important;
+  }
+}
+
+.img-slide1 {
+  @include breakpoints-up(md) {
+    float: left;
+  }
+}
+
+.img-slide2 {
+  @include breakpoints-up(lg) {
+    float: right;
+  }
+}
+
+.h-banner.img {
+  text-align: center;
+  img {
+    margin-top: $spacing1;
+    z-index: 4;
+    @include breakpoints-up(md) {
+      height: 164px;
+    }
+    @include breakpoints-down(sm) {
+      max-width: none;
+    }
+    @include breakpoints-down(xs) {
+      @include left(-400px);
+    }
+  }
+}
+
+.background-banner.img {
+  position: absolute;
+  z-index: 1;
+  right: -320px;
+  top: 20px;
+  &:before {
+    content: '';
+    background: url($deco-banner) no-repeat transparent;
+    width: 827px;
+    height: 246px;
+    transform: scale(0.8);
+    position: absolute;
+    left: -150px;
+    bottom: 40px;
+  }
+  img {
+    max-height: 350px;
+  }
+  @include breakpoints-up(xl) {
+    display: none;
+  }
+  @include breakpoints-down(md) {
+    display: none;
+  }
+}
+
+.slide-nav-group {
+  position: relative;
+}
+
+.slider {
+  .slide {
+    @include breakpoints-up('md') {
+      height: 560px;
+      padding-top: $spacing5;
+    }
+  }
+}
+
+.inner {
+  display: flex;
+  height: 100%;
+  position: relative;
+  align-items: center;
+  @include breakpoints-down('md') {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.text {
+  h4 {
+    font-weight: $font-bold;
+    margin-bottom: $spacing2;
+  }
+  h5 {
+    @include palette-text-secondary;
+    margin-bottom: $spacing4;
+  }
+}
+
+.btn-area {
+  .v-btn {
+    font-size: 18px;
+    font-weight: $font-bold;
+    @include breakpoints-down(xs) {
+      width: 100%;
+      margin-bottom: $spacing2;
+    }
+  }
+  .v-btn.v-btn--contained {
+    @include breakpoints-up(sm) {
+      width: 200px;
+    }
+  }
+  .v-btn.v-btn--text {
+    padding-left: $spacing1;
+    padding-right: $spacing1;
+    @include breakpoints-up(sm) {
+      margin-left: -8px;
+      margin-right: $spacing2;
+    }
+    .theme--dark & {
+      color: $palette-primary-light !important;
+    }
+  }
+  a {
+    display: inline-flex;
+    @include breakpoints-up(sm) {
+      @include margin-right($spacing2);
+    }
+    @include breakpoints-down(xs) {
+      margin: 4px;
+    }
+    img {
+      width: 160px;
+      @include breakpoints-down(xs) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.slide-nav {
+  display: flex;
+  justify-content: center;
+  max-width: 1080px;
+  margin: $spacing4 auto 0;
+  .v-btn {
+    padding: 8px 24px 4px;
+    text-transform: none;
+    height: auto;
+    border: 1px solid transparent;
+    font-weight: $font-regular;
+    ::v-deep(.v-btn__content) {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+    strong {
+      text-transform: capitalize;
+      font-size: 28px;
+      display: block;
+      font-weight: $font-bold;
+      margin-left: -2px;
+      transition: all 0.3s ease-out;
+      &:before {
+        content: '';
+        width: 18px;
+        height: 18px;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.5s ease-out;
+        background: linear-gradient(
+          120deg,
+          $palette-secondary-main,
+          $palette-secondary-light
+        );
+        position: absolute;
+        border-radius: 50%;
+        top: 6px;
+        left: 0;
+      }
+    }
+    &:hover {
+      transition: all 0.3s ease-out;
+      strong {
+        color: $palette-secondary-main;
+      }
+    }
+    &.active {
+      strong {
+        color: $palette-secondary-main;
+        padding-left: 24px;
+        &:before {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+.divider {
+  margin: spacing(0, 2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: rgba(0, 0, 0, 0.87);
+}

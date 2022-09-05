@@ -1,0 +1,64 @@
+.counter-wrap {
+  position: relative;
+  z-index: 4;
+}
+
+.counter-item {
+  p {
+    display: flex;
+    @include palette-text-secondary;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-transform: capitalize;
+    i {
+      font-size: 40px;
+      margin-right: $spacing2;
+      @include breakpoints-down(xs) {
+        font-size: 24px;
+        margin-right: $spacing1;
+      }
+    }
+  }
+  @include breakpoints-up(md) {
+    display: flex;
+  }
+  align-items: center;
+  justify-content: center;
+  .text {
+    text-align: center;
+    h3 {
+      position: relative;
+      @include use-theme(color, $palette-primary-main, $palette-secondary-main);
+    }
+  }
+}
+
+.counter-inner {
+  .col {
+    @include breakpoints-down(xs) {
+      flex-basis: auto;
+    }
+  }
+  > div {
+    position: relative;
+    &:after {
+      content: '';
+      @include border-left(2px solid);
+      @include palette-divider;
+      opacity: 0.2;
+      height: 90px;
+      position: absolute;
+      @include right(0);
+      top: 30px;
+      @include breakpoints-down(xs) {
+        display: none;
+      }
+    }
+  }
+  > div:last-child {
+    &:after {
+      display: none;
+    }
+  }
+}

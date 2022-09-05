@@ -1,0 +1,105 @@
+<template>
+  <div v-if="loaded">
+    <div
+      id="progress"
+      ref="progress"
+      v-scroll="handleScroll"
+      class="progress-wrap"
+    >
+      <ul>
+        <li>
+          <div class="text-icon">
+            <i class="ion-ios-color-wand primary--text" />
+            <h5 class="use-text-subtitle2">UI Interface Design</h5>
+          </div>
+          <v-progress-linear
+            :height="10"
+            :value="play ? 80 : 0"
+            color="primary"
+            class="progress"
+          />
+        </li>
+        <li>
+          <div class="text-icon">
+            <i class="ion-logo-dribbble secondary--text" />
+            <h5 class="use-text-subtitle2">Icon Design</h5>
+          </div>
+          <v-progress-linear
+            :height="10"
+            :value="play ? 70 : 0"
+            color="secondary"
+            class="progress"
+          />
+        </li>
+        <li>
+          <div class="text-icon">
+            <i class="ion-ios-globe accent--text" />
+            <h5 class="use-text-subtitle2">HTML Prototyping</h5>
+          </div>
+          <v-progress-linear
+            :height="10"
+            :value="play ? 60 : 0"
+            color="accent"
+            class="progress"
+          />
+        </li>
+        <li>
+          <div class="text-icon">
+            <i class="ion-ios-camera primary--text" />
+            <h5 class="use-text-subtitle2">Photo Editing</h5>
+          </div>
+          <v-progress-linear
+            :height="10"
+            :value="play ? 90 : 0"
+            color="primary"
+            class="progress"
+          />
+        </li>
+        <li>
+          <div class="text-icon">
+            <i class="ion-ios-snow secondary--text" />
+            <h5 class="use-text-subtitle2">Graphic Illustrations</h5>
+          </div>
+          <v-progress-linear
+            :height="10"
+            :value="play ? 80 : 0"
+            color="secondary"
+            class="progress"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      play: false,
+      loaded: false,
+    }
+  },
+  computed: {
+    offsetTop() {
+      return this.$refs.progress.getBoundingClientRect().y
+    },
+  },
+  mounted() {
+    this.loaded = true
+  },
+  methods: {
+    handleScroll() {
+      const top = this.offsetTop - window.innerHeight + 400
+      if (window.scrollY > top) {
+        return (this.play = true)
+      }
+      return false
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+@import './about-style.scss';
+</style>

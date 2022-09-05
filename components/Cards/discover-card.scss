@@ -1,0 +1,43 @@
+.discover-card {
+  display: flex;
+  align-items: center;
+}
+
+.screen {
+  width: 220px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  @include palette-background-paper;
+  @include shade2;
+  z-index: 2;
+  img {
+    width: 100%;
+  }
+}
+
+.paper {
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  @include margin-left(-220px);
+  text-align: center;
+  padding: $spacing3;
+  @include padding-left(240px);
+  margin-bottom: $spacing2;
+  &.v-card:not(.v-sheet--tile):not(.v-card--shaped) {
+    border-radius: 40px;
+  }
+  img {
+    max-width: 100%;
+    max-height: 245px;
+    margin: 0 auto;
+  }
+  strong {
+    font-weight: $font-bold;
+    font-size: 24px;
+    margin-bottom: $spacing2;
+  }
+}

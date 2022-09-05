@@ -1,0 +1,252 @@
+$deco-desktop: '/images/retail/deco-desktop.svg';
+$deco-mobile: '/images/retail/deco-mobile.svg';
+
+.root {
+  position: relative;
+  margin-bottom: $spacing15;
+  @include breakpoints-up(sm) {
+    margin-bottom: $spacing20;
+  }
+  p {
+    position: relative;
+    z-index: 1;
+  }
+  &:before {
+    content: '';
+    border-radius: 50%;
+    @include use-theme(
+      background,
+      $palette-primary-light,
+      $palette-primary-dark
+    );
+    position: absolute;
+    opacity: 0.15;
+    top: -450px;
+    height: 1160px;
+    width: 300%;
+    left: -100%;
+    @include breakpoints-up(sm) {
+      width: 200%;
+      top: -350px;
+      left: -50%;
+      height: 1160px;
+    }
+  }
+}
+
+.carousel {
+  position: relative;
+  ::v-deep(.slick-dots) {
+    position: relative;
+    bottom: -25px;
+    li {
+      width: 15px;
+      height: 15px;
+      border: 1px solid $palette-primary-main;
+      border-radius: 15px;
+      opacity: 0.7;
+      transition: all 0.5s ease-out;
+      margin: 0 4px;
+      &.slick-active {
+        background: $palette-primary-main;
+        width: 40px;
+      }
+    }
+    li button:before {
+      display: none;
+    }
+  }
+}
+
+.slider-wrap {
+  margin-top: $spacing10;
+}
+
+.paper-round {
+  width: 200px;
+  margin: 100px auto 0;
+  height: 100px;
+  @include palette-background-paper;
+  border-radius: 100px;
+  text-align: center;
+  @include shade;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  img {
+    height: 97px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: $font-bold;
+  }
+}
+
+.item {
+  padding: spacing(6, 0);
+  height: 400px;
+  &:focus {
+    outline: none;
+  }
+  figure {
+    overflow: hidden;
+    position: relative;
+    @include palette-background-paper;
+    border-radius: $rounded-medium;
+    @include shade2;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.desc {
+  @include breakpoints-down(xs) {
+    padding: spacing(0, 1);
+  }
+}
+
+.text {
+  h4 {
+    margin: spacing(3, 0, 2);
+    font-size: 32px;
+    @include breakpoints-down(xs) {
+      font-size: 24px;
+    }
+  }
+}
+
+.desktop {
+  @include breakpoints-down(xs) {
+    text-align: center;
+  }
+  &:before {
+    content: '';
+    background: url($deco-desktop) no-repeat transparent;
+    width: 590px;
+    height: 276px;
+    position: absolute;
+    top: 70px;
+    left: -15px;
+    transform: scale(0.95);
+    opacity: 0.15;
+  }
+  figure {
+    margin: 0 auto $spacing3;
+    @include breakpoints-up(sm) {
+      width: 456px;
+      height: 220px;
+    }
+    @include breakpoints-down(xs) {
+      margin: 0 $spacing3;
+    }
+  }
+  .desc {
+    & > div {
+      display: flex;
+      align-items: flex-end;
+    }
+    img {
+      height: 160px;
+      @include margin-right($spacing2);
+      @include breakpoints-down(xs) {
+        display: none;
+      }
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.mobile {
+  display: flex;
+  align-items: center;
+  &:before {
+    content: '';
+    background: url($deco-mobile) no-repeat transparent;
+    width: 303px;
+    height: 462px;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    opacity: 0.15;
+  }
+  figure {
+    width: 196px;
+    height: 360px;
+    margin: 0 auto;
+    @include breakpoints-down(xs) {
+      width: 98px;
+      height: 180px;
+      margin: 0 $spacing1;
+    }
+  }
+  .desc {
+    text-align: center;
+    flex: 1;
+    @include breakpoints-down(xs) {
+      @include text-align(left);
+    }
+    img {
+      max-width: 240px;
+      margin: 0 auto;
+      @include breakpoints-down(xs) {
+        display: none;
+      }
+    }
+    > div {
+      @include breakpoints-up(sm) {
+        @include padding-left($spacing2);
+      }
+    }
+  }
+}
+
+.carousel-center {
+  max-width: 560px;
+  margin: -500px auto 0;
+  position: relative;
+  @include use-theme(
+    background,
+    $light-background-paper,
+    $dark-background-default
+  );
+  @include use-theme(
+    box-shadow,
+    0 0 15px 40px $light-background-paper,
+    0 0 15px 40px $dark-background-default
+  );
+  &:before {
+    content: '';
+    @include use-theme(
+      background,
+      $palette-primary-light,
+      $palette-primary-dark
+    );
+    @include use-theme(
+      box-shadow,
+      0 0 15px 40px $palette-primary-light,
+      0 0 15px 40px $palette-primary-dark
+    );
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.15;
+  }
+}
+
+.carousel-side {
+  ::v-deep(.slick-list) {
+    padding: 0 !important;
+  }
+  @include breakpoints-down(md) {
+    opacity: 0;
+  }
+}

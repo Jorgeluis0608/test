@@ -1,0 +1,56 @@
+$deco: '/images/retail/deco-cta.svg';
+
+.action {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  @include breakpoints-down(md) {
+    padding-top: 0;
+    padding-bottom: $spacing3;
+  }
+  @include breakpoints-down(xs) {
+    padding: spacing(0, 2);
+  }
+  h4 {
+    margin-bottom: $spacing6;
+  }
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    background: url($deco) no-repeat transparent;
+    width: 555px;
+    height: 520px;
+    opacity: 0.15;
+  }
+  &:before {
+    top: -100px;
+    left: -270px;
+    transform: rotate(90deg);
+    @include breakpoints-down(xs) {
+      left: -480px;
+    }
+  }
+  &:after {
+    top: -300px;
+    right: -300px;
+    @include breakpoints-down(xs) {
+      right: -480px;
+    }
+  }
+}
+
+.btn-area {
+  margin: spacing(5, 0);
+  justify-content: center;
+  position: relative;
+  display: flex;
+  @include breakpoints-down(xs) {
+    justify-content: space-around;
+  }
+  .v-btn {
+    font-size: 22px;
+    width: 250px;
+    height: 60px !important;
+  }
+}

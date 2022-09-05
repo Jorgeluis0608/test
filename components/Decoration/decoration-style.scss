@@ -1,0 +1,56 @@
+$deco-page-left: '/images/retail/deco-page-left.svg';
+$deco-page-right: '/images/retail/deco-page-right.svg';
+$deco-form: '/images/retail/deco-form.svg';
+
+.form-deco,
+.page-deco {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.left-deco,
+.right-deco {
+  position: absolute;
+}
+
+.form-deco {
+  opacity: 0.1;
+  .left-deco,
+  .right-deco {
+    width: 555px;
+    height: 442px;
+    background: url($deco-form) no-repeat transparent;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .left-deco {
+    left: -350px;
+  }
+  .right-deco {
+    right: -300px;
+    transform: translateY(-50%) rotate(90deg);
+  }
+}
+
+.page-deco {
+  opacity: 0.3;
+  .left-deco {
+    width: 360px;
+    height: 230px;
+    background: url($deco-page-left) no-repeat transparent;
+    left: -75px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .right-deco {
+    width: 330px;
+    height: 250px;
+    background: url($deco-page-right) no-repeat transparent;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

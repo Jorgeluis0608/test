@@ -1,0 +1,151 @@
+.left {
+  text-align: left;
+  &:before {
+    left: 0;
+  }
+}
+
+.right {
+  text-align: right;
+  &:before {
+    right: 0;
+  }
+}
+
+.center {
+  text-align: center;
+  &:before {
+    left: 50%;
+    @include margin-left(-35px);
+  }
+}
+
+.title-main {
+  display: block;
+  position: relative;
+  margin-bottom: $spacing10;
+  @include breakpoints-down(xs) {
+    padding: spacing(0, 3);
+  }
+  h3 {
+    @include palette-text-primary;
+    font-weight: $font-bold;
+    font-size: 46px;
+    text-transform: capitalize;
+    @include breakpoints-down(md) {
+      font-size: 38px;
+      line-height: 50px;
+    }
+    @include breakpoints-down(xs) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+  &:before {
+    content: '';
+    width: 70px;
+    height: 12px;
+    bottom: -32px;
+    border-radius: 12px;
+    position: absolute;
+    @include use-theme(
+      background-image,
+      linear-gradient(-20deg, $palette-secondary-light, $palette-primary-light),
+      linear-gradient(-20deg, $palette-secondary-dark, $palette-primary-dark)
+    );
+  }
+  &:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    bottom: -32px;
+    border-radius: 50%;
+    @include use-theme(
+      background,
+      $palette-primary-light,
+      $palette-primary-main
+    );
+    position: absolute;
+  }
+  strong {
+    @include palette-text-primary;
+  }
+  &.left {
+    &:before {
+      left: 0;
+    }
+    &:after {
+      @include left(58px);
+    }
+  }
+  &.right {
+    &:before {
+      right: 0;
+    }
+    &:after {
+      @include right(58px);
+    }
+  }
+  &.center {
+    &:before {
+      left: 50%;
+      @include margin-left(-35px);
+    }
+    &:after {
+      @include left(calc(50% + 23px));
+    }
+  }
+  &.dark {
+    h3 {
+      color: $palette-common-white;
+    }
+  }
+}
+
+.title-secondary {
+  display: block;
+  position: relative;
+  margin: spacing(4, 0);
+  @include breakpoints-down(sm) {
+    margin: spacing(0, 0, 4);
+  }
+  h4 {
+    @include palette-text-primary;
+    font-size: 32px;
+    font-weight: $font-medium;
+    @include breakpoints-down(xs) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+  &:after {
+    content: '';
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: $palette-secondary-main;
+    position: absolute;
+  }
+  &.left {
+    padding-left: $spacing4;
+    &:after {
+      left: 0;
+      top: 16px;
+    }
+  }
+  &.right {
+    padding-right: $spacing4;
+    &:after {
+      right: 0;
+      top: 16px;
+    }
+  }
+  &.center {
+    margin-bottom: $spacing6;
+    &:after {
+      left: 50%;
+      margin-right: -8px;
+      bottom: -35px;
+    }
+  }
+}
