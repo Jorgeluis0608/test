@@ -109,6 +109,7 @@
   "scripts": {
     "dev": "nuxt",
     "watch": "nuxt",
+    "build": "nuxt build",
     "generate": "nuxt generate",
     "build": "nuxt build",
     "start": "nuxt start",
