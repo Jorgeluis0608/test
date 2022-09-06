@@ -9,11 +9,21 @@ const vaultUrl = process.env.SWELL_VAULT_URL;
 
 export default {
 
-    head: {
-      link: [
-        { rel: 'stylesheet', href: 'https://unpkg.com/ionicons@3.0.0/dist/css/ionicons.min.css' }
-      ]
-    },
+  head: {
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      // PWA primary color
+      { name: 'theme-color', content: theme.primary},
+    ],
+    link: [
+      // Favicon
+      { rel: 'shortcut icon', href: '/favicons/favicon.ico' },
+      // Fonts and Icons
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/ionicons@3.0.0/dist/css/ionicons.min.css' }
+    ]
+  },
     target: editorMode ? 'server' : 'static',
 
     components: true,

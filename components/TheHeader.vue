@@ -172,7 +172,7 @@
                   </v-btn>
                   <v-btn
                     v-if="isDesktop"
-                    href="/account/register"
+                    href="/account/create-account/"
                     color="primary"
                   >
                     register
